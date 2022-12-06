@@ -14,7 +14,7 @@ public class HttpImageStatusCli {
 
             if (scanner.hasNextInt()) {
                 int userInput = scanner.nextInt();
-                if (userInput > 600) {
+                if (userInput > 599) {
                     System.out.println("YOUR STATUS CODE CANNOT BE GREATER THEN 599");
                     new HttpImageStatusCli().askStatus();
                 } else {
