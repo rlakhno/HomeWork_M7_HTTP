@@ -14,9 +14,14 @@ public class HttpStatusChecker {
         connection.setConnectTimeout(5000);
         connection.setReadTimeout(5000);
 
-        int status = connection.getResponseCode();
-        if (status == 404) {
-            throw new Exception("\n !!! --> There is NO image for HTTP status code : "
+        try {
+            int status = connection.getResponseCode();
+            if (status == 404) {
+                catCodeUrl = "invalidStatus";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("\n !!! --> There is NO image for HTTP status code : "
                     + code + " <-- ");
         }
         return catCodeUrl;
